@@ -1,9 +1,6 @@
 import { UserForm } from "./components/Users/UserForm"
 import { UsersList } from "./components/Users/UsersList"
 
-
-export const App = ()=> {
-
   const initialUsers = [
     {
       id:1,
@@ -14,6 +11,11 @@ export const App = ()=> {
   ];
 
 
+export const App = ()=> {
+
+  const handlerAddUser = (user) => {
+    console.log(user);
+  };
 
   return (
     <div className="container my-4">
@@ -24,7 +26,10 @@ export const App = ()=> {
         <UserForm/>
       </div>
       <div className="col">
-        <UsersList users={ initialUsers }/>
+        <UsersList
+          users={ initialUsers }
+          handlerAddUser={ handlerAddUser }
+        />
       </div>
       </div>
     </div>
